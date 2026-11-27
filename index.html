@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Website profil sekolah - praktikum Grid System dan Komponen Bootstrap 5">
+  <title>SMK Digital | Profil Sekolah</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    :root {
+      --school-primary: #1456a0;
+      --school-dark: #10243a;
+      --school-accent: #21b6a8;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #263445;
+      background: #fff;
+    }
+
+    .navbar-brand { letter-spacing: .4px; }
+    .hero {
+      background: linear-gradient(120deg, #eaf3ff 0%, #f5fbff 55%, #e8faf7 100%);
+      overflow: hidden;
+    }
+    .hero-badge {
+      display: inline-block;
+      padding: .45rem .8rem;
+      border-radius: 50rem;
+      color: var(--school-primary);
+      background: #dcecff;
+      font-size: .85rem;
+      font-weight: 700;
+    }
+    .hero-image {
+      min-height: 300px;
+      background: linear-gradient(135deg, #1456a0, #21b6a8);
+      border-radius: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      box-shadow: 0 1rem 2.5rem rgba(16, 36, 58, .18);
+    }
+    .section-kicker {
+      color: var(--school-primary);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: .75rem;
+      font-weight: 800;
+    }
+    .feature-icon {
+      width: 54px;
+      height: 54px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 1rem;
+      background: #eaf3ff;
+      color: var(--school-primary);
+      font-size: 1.5rem;
+    }
+    .program-card {
+      border: 0;
+      border-radius: 1rem;
+      overflow: hidden;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .program-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 1rem 2rem rgba(16, 36, 58, .12) !important;
+    }
+    .program-visual {
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+    }
+    .bg-tkj { background: linear-gradient(135deg, #1456a0, #3989db); }
+    .bg-rpl { background: linear-gradient(135deg, #12805c, #43bd91); }
+    .bg-dkv { background: linear-gradient(135deg, #c17a0b, #f1bd42); }
+    .stat-box {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.25rem;
+      height: 100%;
+      box-shadow: 0 .5rem 1.5rem rgba(16, 36, 58, .07);
+    }
+    footer { background: var(--school-dark); }
+    .footer-link { color: #d7e4f2; text-decoration: none; }
+    .footer-link:hover { color: white; }
+  </style>
+</head>
+
+<body>
+  <!-- ======================================================
+       1. NAVBAR
+       Latihan: navbar-expand-lg, collapse, navbar-toggler,
+       ms-auto, nav-link
+  ======================================================= -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#beranda">
+        <i class="bi bi-mortarboard-fill me-2"></i>SMK DIGITAL
+      </a>
+
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#menuUtama"
+              aria-controls="menuUtama" aria-expanded="false"
+              aria-label="Buka navigasi">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menuUtama">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#beranda">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link" href="#profil">Profil</a></li>
+          <li class="nav-item"><a class="nav-link" href="#program">Program Keahlian</a></li>
+          <li class="nav-item"><a class="nav-link" href="#fasilitas">Fasilitas</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+        </ul>
+        <button class="btn btn-light text-primary fw-semibold ms-lg-3 mt-3 mt-lg-0"
+                data-bs-toggle="modal" data-bs-target="#modalPendaftaran">
+          Informasi PPDB
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ======================================================
+         2. HERO SECTION
+         Latihan: container, row, col-12, col-md-6,
+         align-items-center, py, display, lead, button
+    ======================================================= -->
+    <section class="hero py-5" id="beranda">
+      <div class="container py-lg-4">
+        <div class="row align-items-center g-4">
+          <div class="col-12 col-md-6">
+            <span class="hero-badge mb-3">Sekolah Vokasi • Kreatif • Kompeten</span>
+            <h1 class="display-5 fw-bold text-dark mb-3">
+              Siapkan Masa Depan dengan <span class="text-primary">Keahlian Digital</span>
+            </h1>
+            <p class="lead text-secondary mb-4">
+              Belajar, berkarya, dan berinovasi melalui pembelajaran berbasis praktik
+              untuk menghadapi dunia kerja dan perkembangan teknologi.
+            </p>
+            <div class="d-flex flex-wrap gap-2">
+              <a href="#program" class="btn btn-primary btn-lg">
+                Jelajahi Program <i class="bi bi-arrow-right ms-1"></i>
+              </a>
+              <button class="btn btn-outline-primary btn-lg"
+                      data-bs-toggle="modal" data-bs-target="#modalProfil">
+                Tentang Sekolah
+              </button>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <div class="hero-image p-4 text-center">
+              <div>
+                <i class="bi bi-laptop display-1"></i>
+                <h3 class="fw-bold mt-3">Belajar dengan Praktik</h3>
+                <p class="mb-0">Kembangkan kemampuan untuk masa depan.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         3. PROFIL SINGKAT
+         Latihan: grid 12 kolom dan tipografi
+    ======================================================= -->
+    <section class="py-5" id="profil">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-12 col-lg-7">
+            <p class="section-kicker mb-2">Profil Sekolah</p>
+            <h2 class="fw-bold mb-3">Membangun Generasi Terampil dan Berkarakter</h2>
+            <p class="text-secondary">
+              SMK DIGITAL merupakan contoh identitas sekolah untuk latihan membuat
+              website profil. Peserta didik dapat mengganti bagian ini dengan
+              sejarah, visi, misi, dan informasi sekolah masing-masing.
+            </p>
+            <p class="text-secondary mb-0">
+              Pembelajaran berorientasi pada kompetensi, kreativitas, kolaborasi,
+              serta pemanfaatan teknologi dalam menyelesaikan masalah.
+            </p>
+          </div>
+          <div class="col-12 col-lg-5">
+            <div class="row g-3">
+              <div class="col-6">
+                <div class="stat-box text-center">
+                  <i class="bi bi-people-fill text-primary fs-2"></i>
+                  <h3 class="fw-bold mt-2 mb-0">1.200+</h3>
+                  <small class="text-secondary">Peserta Didik</small>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="stat-box text-center">
+                  <i class="bi bi-person-workspace text-success fs-2"></i>
+                  <h3 class="fw-bold mt-2 mb-0">75+</h3>
+                  <small class="text-secondary">Guru & Staf</small>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="stat-box text-center">
+                  <i class="bi bi-building text-warning fs-2"></i>
+                  <h3 class="fw-bold mt-2 mb-0">20+</h3>
+                  <small class="text-secondary">Ruang Praktik</small>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="stat-box text-center">
+                  <i class="bi bi-award-fill text-danger fs-2"></i>
+                  <h3 class="fw-bold mt-2 mb-0">A</h3>
+                  <small class="text-secondary">Semangat Unggul</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         4. PROGRAM KEAHLIAN / CARDS
+         Latihan: row, col-12 col-md-6 col-lg-4, g-4,
+         card, card-body, h-100, buttons
+    ======================================================= -->
+    <section class="py-5 bg-light" id="program">
+      <div class="container">
+        <div class="text-center mb-5">
+          <p class="section-kicker mb-2">Pilihan Kompetensi</p>
+          <h2 class="fw-bold">Program Keahlian</h2>
+          <p class="text-secondary mb-0">Kenali bidang keahlian dan kembangkan potensimu.</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card program-card h-100 shadow-sm">
+              <div class="program-visual bg-tkj">
+                <i class="bi bi-router-fill"></i>
+              </div>
+              <div class="card-body p-4">
+                <span class="badge text-bg-primary mb-2">Teknologi</span>
+                <h5 class="card-title fw-bold">Teknik Komputer dan Jaringan</h5>
+                <p class="card-text text-secondary">
+                  Mempelajari komputer, infrastruktur jaringan, server,
+                  keamanan jaringan, dan teknologi internet.
+                </p>
+                <button class="btn btn-outline-primary"
+                        data-bs-toggle="modal" data-bs-target="#modalTKJ">
+                  Detail Program
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card program-card h-100 shadow-sm">
+              <div class="program-visual bg-rpl">
+                <i class="bi bi-code-slash"></i>
+              </div>
+              <div class="card-body p-4">
+                <span class="badge text-bg-success mb-2">Pemrograman</span>
+                <h5 class="card-title fw-bold">Rekayasa Perangkat Lunak</h5>
+                <p class="card-text text-secondary">
+                  Mempelajari logika pemrograman, pengembangan website,
+                  aplikasi, basis data, dan pengujian perangkat lunak.
+                </p>
+                <button class="btn btn-outline-success"
+                        data-bs-toggle="modal" data-bs-target="#modalRPL">
+                  Detail Program
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card program-card h-100 shadow-sm">
+              <div class="program-visual bg-dkv">
+                <i class="bi bi-palette-fill"></i>
+              </div>
+              <div class="card-body p-4">
+                <span class="badge text-bg-warning mb-2">Kreativitas</span>
+                <h5 class="card-title fw-bold">Desain Komunikasi Visual</h5>
+                <p class="card-text text-secondary">
+                  Mempelajari desain grafis, ilustrasi, fotografi,
+                  multimedia, dan komunikasi visual.
+                </p>
+                <button class="btn btn-outline-warning"
+                        data-bs-toggle="modal" data-bs-target="#modalDKV">
+                  Detail Program
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         5. FASILITAS / FLEXBOX
+         Latihan: d-flex, flex-column, flex-md-row,
+         justify-content-between, align-items-center, gap
+    ======================================================= -->
+    <section class="py-5" id="fasilitas">
+      <div class="container">
+        <div class="text-center mb-5">
+          <p class="section-kicker mb-2">Lingkungan Belajar</p>
+          <h2 class="fw-bold">Fasilitas Pendukung</h2>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-12 col-md-4">
+            <div class="d-flex align-items-start gap-3">
+              <div class="feature-icon flex-shrink-0"><i class="bi bi-pc-display"></i></div>
+              <div>
+                <h5 class="fw-bold">Laboratorium Komputer</h5>
+                <p class="text-secondary mb-0">Ruang praktik untuk kegiatan pemrograman dan teknologi informasi.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="d-flex align-items-start gap-3">
+              <div class="feature-icon flex-shrink-0"><i class="bi bi-wifi"></i></div>
+              <div>
+                <h5 class="fw-bold">Akses Internet</h5>
+                <p class="text-secondary mb-0">Mendukung pembelajaran, riset, dan eksplorasi sumber digital.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="d-flex align-items-start gap-3">
+              <div class="feature-icon flex-shrink-0"><i class="bi bi-book-half"></i></div>
+              <div>
+                <h5 class="fw-bold">Perpustakaan</h5>
+                <p class="text-secondary mb-0">Sumber belajar untuk menambah pengetahuan dan wawasan.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA: FLEXBOX -->
+    <section class="py-4 bg-primary text-white">
+      <div class="container">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+          <div class="text-center text-md-start">
+            <h3 class="fw-bold mb-1">Siap Mengembangkan Potensimu?</h3>
+            <p class="mb-0 text-white-50">Cari tahu informasi sekolah dan program keahlian.</p>
+          </div>
+          <button class="btn btn-light text-primary fw-bold"
+                  data-bs-toggle="modal" data-bs-target="#modalPendaftaran">
+            Hubungi Kami
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================
+       6. FOOTER
+  ======================================================= -->
+  <footer class="text-white py-4" id="kontak">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-md-6">
+          <h5 class="fw-bold"><i class="bi bi-mortarboard-fill me-2"></i>SMK DIGITAL</h5>
+          <p class="text-white-50 mb-0">
+            Website contoh untuk praktikum Grid System dan Komponen Bootstrap 5.
+          </p>
+        </div>
+        <div class="col-12 col-md-3">
+          <h6 class="fw-bold">Navigasi</h6>
+          <ul class="list-unstyled">
+            <li><a class="footer-link" href="#profil">Profil</a></li>
+            <li><a class="footer-link" href="#program">Program Keahlian</a></li>
+            <li><a class="footer-link" href="#fasilitas">Fasilitas</a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-3">
+          <h6 class="fw-bold">Kontak</h6>
+          <p class="text-white-50 mb-1"><i class="bi bi-geo-alt me-2"></i>Alamat sekolah</p>
+          <p class="text-white-50 mb-1"><i class="bi bi-envelope me-2"></i>info@sekolah.sch.id</p>
+          <p class="text-white-50 mb-0"><i class="bi bi-telephone me-2"></i>08xx-xxxx-xxxx</p>
+        </div>
+      </div>
+      <hr class="border-secondary my-4">
+      <div class="d-flex flex-column flex-md-row justify-content-between gap-2">
+        <small class="text-white-50">© <span id="tahun"></span> SMK DIGITAL. Untuk keperluan pembelajaran.</small>
+        <small class="text-white-50">Dibuat dengan Bootstrap 5</small>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================
+       7. MODALS
+  ======================================================= -->
+  <div class="modal fade" id="modalProfil" tabindex="-1" aria-labelledby="judulModalProfil" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="judulModalProfil">Tentang Sekolah</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        <div class="modal-body">
+          Ini adalah contoh modal Bootstrap. Ganti teks ini dengan profil singkat,
+          visi, misi, atau informasi sekolah yang sebenarnya.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalPendaftaran" tabindex="-1" aria-labelledby="judulModalPPDB" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="judulModalPPDB">Informasi Pendaftaran</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        <div class="modal-body">
+          <p>Pendaftaran peserta didik baru merupakan contoh informasi pada website.</p>
+          <p class="mb-0">Silakan hubungi panitia sekolah untuk memperoleh informasi resmi.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+          <a href="#kontak" class="btn btn-primary" data-bs-dismiss="modal">Lihat Kontak</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalTKJ" tabindex="-1" aria-labelledby="judulTKJ" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="judulTKJ">Teknik Komputer dan Jaringan</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        <div class="modal-body">
+          Kompetensi contoh: perakitan komputer, instalasi sistem operasi,
+          administrasi server, infrastruktur jaringan, dan keamanan jaringan.
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalRPL" tabindex="-1" aria-labelledby="judulRPL" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="judulRPL">Rekayasa Perangkat Lunak</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        <div class="modal-body">
+          Kompetensi contoh: algoritma, HTML, CSS, JavaScript, PHP,
+          basis data, Git, dan pengembangan aplikasi.
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalDKV" tabindex="-1" aria-labelledby="judulDKV" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="judulDKV">Desain Komunikasi Visual</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        <div class="modal-body">
+          Kompetensi contoh: prinsip desain, tipografi, ilustrasi,
+          fotografi, desain digital, dan produksi media visual.
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JavaScript Bundle: wajib untuk Navbar collapse dan Modal -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Menampilkan tahun secara otomatis pada footer.
+    document.getElementById("tahun").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
